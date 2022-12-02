@@ -78,7 +78,8 @@ function RequestEvaluation(props){
 
     }
 
-    function onUpload(){
+    function onUpload(event){
+        event.preventDefault()
         fetch(`http://dan565.pythonanywhere.com/user/${JSON.parse(localStorage.getItem('token'))}/upload`, { //upload image to API using user token.
             method: 'POST',
             headers: {
