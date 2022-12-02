@@ -1,13 +1,330 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Log in page */
+
+.login-page{
+  display:flex;
+  margin:0 auto;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 70vh;
+}
+
+.login-text{
+  margin-right: 10vw;
+}
+
+.login-title{
+  margin: auto;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 66px;
+  color:red;
+}
+
+.login-subtitle{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 200;
+  font-size: 20px;
+  color:black;
+}
+
+.login-container{
+  width: 30vw;
+  text-align: center;
+  padding: 0px 0;
+  font-family: 'Poppins';
+  font-style: normal;
+  background: white;
+  box-shadow: 0 0 10px 2px #aaaaaa;
+  border-radius: 20px;
+}
+
+.login-input{
+  width: 30%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 1px solid black;
+  text-align: left;
+  margin-top: 30px;
+}
+
+.login-submit{
+  margin: auto;
+  font-family: 'Poppins';
+  font-size: 15px;
+  font-weight: bold;
+
+  margin-top: 40px;
+  margin-bottom: 20px;
+  background-color: red;
+  border: 1px solid darkred;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 15vw;
+  height: 3vh;
+}
+
+.login-submit:hover{
+  background-color: lightsalmon;
+}
+
+.h-line{
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.forgot-password{
+  cursor: pointer;
+  font-size: 11px;
+  margin-bottom: 20px;
+}
+
+.register{
+  cursor: pointer;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+.errorMsg{
+  font-size: 12px;
+  color:red;
+}
+
+.errorMsg_reg{
+  font-size: 15px;
+  color:red;
+}
+
+.posMsg{
+  font-size: 12px;
+  color:green;
+}
+
+
+.register-page{
+
+  padding: 0px 0;
+  margin:0 auto;
+  margin-top: 15vh;
+  width: 30vw;
+}
+
+.register-title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins';
+  font-size: 27px;
+  font-weight: bold;
+}
+
+.register-form{
+
+  overflow: hidden;
+
+  font-family: 'Poppins';
+  text-align: center;
+  font-style: normal;
+  background: white;
+  box-shadow: 0 0 10px 2px #aaaaaa;
+  border-radius: 20px;
+}
+
+.preview{
+  width: 50%
+}
+
+.passwordListContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.passwordList{
+  font-size: 13px;
+  text-align: left;
+}
+
+li span {
+  position: relative;
+  left: 10px;
+}
+
+button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  cursor:not-allowed;
+}
+
+.form_group_recaptcha > div > div {
+  display: flex;
+  place-content: center;
+}
+
+table{
+  border-collapse: collapse;
+  border:solid black 1px;
+}
+
+th{
+  font-size: 15px;
+  font-family: 'Poppins';
+  font-style: normal;
+  border:solid black 1px;
+}
+
+tr{
+  padding-left:100px;
+  border:solid black 1px;
+}
+
+td{
+  font-size: 20px;
+  font-family: 'Poppins';
+  font-style: normal;
+}
+
+th,td{
+  padding: 10px;
+  border-right:solid black 1px;
+}
+
+tbody > tr > td:nth-child(1){
+  border-right:solid black 1px;
+}
+
+tbody > tr > td:nth-child(2){
+  text-align: left;
+}
+
+
+.admin-title{
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 36px;
+}
+
+table{
+  margin-left: auto;
+  margin-right: auto;
+  width: 100vw;
+  height: 70vh;
+}
+
+.header-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: darkred;
+  background-blend-mode: normal, darken;
+  max-width: 100%;
+}
+
+.header-list > li {
+  font-family: 'Inter';
+  font-size: 20px;
+}
+
+.header-list > li > p {
+  float: left;
+  padding-left: 40px;
+  display: block;
+  color: white;
+  text-decoration: none;
+}
+
+.logout{
+  float: right;    
+  display: block;
+  margin-right:20px;
+  align-items: center;    
+  cursor: pointer;
+}
+
+
+.success{
+  text-align: center;
+  margin-top: 10px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color:green;
+  
+}
+
+/*REQUEST PAGE*/
+
+.request-page{
+  padding: 0px 0;
+  margin:0 auto;
+  margin-top: 5vh;
+  width: 50vw;
+}
+
+.request-title{
+  text-align: center;
+  margin: auto;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 26px;
+  color:black;
+}
+
+.file-name{
+  font-size: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bolder;
+}
+
+.contact{
+  font-size: 15px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bolder;
+}
+
+input[type="file"]{
+  display: none;
+}
+
+.request-form-container{
+  margin-top: 3vh;
+  text-align: center;
+}
+
+.custom-upload-file{
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.form-div{
+  margin-top: 2vh;
+}
+
+.submit-button{
+  margin-top: 2vh;
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+
+.preview-form{
+  width: 50%;
+  border:solid black 1px;
 }
