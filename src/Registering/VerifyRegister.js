@@ -29,7 +29,7 @@ function VerifyRegister(props) {
         event.preventDefault()
         console.log(formData)
 
-        fetch(`http://127.0.0.1:8080/user/verify`, {
+        fetch(`http://dan565.pythonanywhere.com/user/verify`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
