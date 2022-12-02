@@ -9,7 +9,7 @@ function Register() {
     const [errorMessage, setErrorMessage] = useState("") //string storing error message.
 
     useEffect(() => { //run before components load.
-        fetch(`http://127.0.0.1:8080/questions`,{ //get all security questions from API.
+        fetch(`http://dan565.pythonanywhere.com/questions`,{ //get all security questions from API.
             method:"GET"
         }).then(res => res.json()).then(data => {
             var count = 0
@@ -48,7 +48,7 @@ function Register() {
 
     function handleSubmit(event){
         event.preventDefault()
-        fetch(`http://127.0.0.1:8080/user`, { //post a new user to the API for verification.
+        fetch(`http://dan565.pythonanywhere.com/user`, { //post a new user to the API for verification.
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

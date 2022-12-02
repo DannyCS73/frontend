@@ -8,7 +8,7 @@ function Admin(){
 
     useEffect(() => { //run before components load.
         try{
-            fetch("http://127.0.0.1:8080/images", { //fetch all items from API.
+            fetch("http://dan565.pythonanywhere.com/images", { //fetch all items from API.
                 method: 'GET',
                 headers: {
                         'x-access-token': localStorage.getItem("token").slice(1,-1) //get users access token from local storage.

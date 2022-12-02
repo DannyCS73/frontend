@@ -53,7 +53,7 @@ function Login() {
 
     function handleSubmit(event){
         event.preventDefault()
-        fetch("http://127.0.0.1:8080/login", {
+        fetch("http://dan565.pythonanywhere.com/login", {
             method: 'GET',
             headers:{
                 'Authorization': 'Basic ' + base64.encode(formData.username + ":" + formData.password) //send username and password through authorization headers

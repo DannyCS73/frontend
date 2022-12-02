@@ -33,7 +33,7 @@ function RequestEvaluation(props){
 
     useEffect(() => { //run before components load
         try{
-            fetch("http://127.0.0.1:8080/valid_token", { //check user is logged on by validating thier token.
+            fetch("http://dan565.pythonanywhere.com/valid_token", { //check user is logged on by validating thier token.
                 method: 'GET',
                 headers: {
                     'x-access-token': localStorage.getItem("token").slice(1,-1) //send token through x-access-token header to API
@@ -79,7 +79,7 @@ function RequestEvaluation(props){
     }
 
     function onUpload(){
-        fetch(`http://127.0.0.1:8080/user/${JSON.parse(localStorage.getItem('token'))}/upload`, { //upload image to API using user token.
+        fetch(`http://dan565.pythonanywhere.com/user/${JSON.parse(localStorage.getItem('token'))}/upload`, { //upload image to API using user token.
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

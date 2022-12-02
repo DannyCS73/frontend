@@ -28,7 +28,7 @@ function ResetPassword(){
     }
 
     useEffect(() => { //run before components load.
-        fetch(`http://127.0.0.1:8080/verifyresetoken/${id}`, { //post a new user to the API for verification.
+        fetch(`http://dan565.pythonanywhere.com/verifyresetoken/${id}`, { //post a new user to the API for verification.
             method: 'GET'
         }).then(res => {
             if(!res.ok){ 
@@ -48,7 +48,7 @@ function ResetPassword(){
 
     function handleSubmit(event){
         event.preventDefault()
-        fetch(`http://127.0.0.1:8080/resetpassword/${id}`, {
+        fetch(`http://dan565.pythonanywhere.com/resetpassword/${id}`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
