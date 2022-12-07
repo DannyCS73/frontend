@@ -83,6 +83,7 @@ function RequestEvaluation(props){
 
     function onUpload(event){
         event.preventDefault()
+        trackPromise(
         //fetch(`http://127.0.0.1:8080/user/${JSON.parse(localStorage.getItem('token'))}/upload`, {
         fetch(`http://dan565.pythonanywhere.com/user/${JSON.parse(localStorage.getItem('token'))}/upload`, { //upload image to API using user token.
             method: 'POST',
@@ -107,7 +108,7 @@ function RequestEvaluation(props){
                     setSubmitted(true) //let user know there item has been sent successfully.
                 }).catch(err => {
                     setSubmitErrMsg(true)
-                })
+                }))
     }
 
     return (
