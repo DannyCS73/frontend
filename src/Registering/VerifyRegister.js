@@ -5,10 +5,14 @@ import { BrowserRouter, Routes, Router , Route, Link} from 'react-router-dom'
 
 function VerifyRegister(props) {
 
+    let navigate = useNavigate(); 
 
     const {state} = useLocation();
     console.log(state)
 
+    function navigateToHomePage(){
+        navigate('/home')
+    }
 
     const[formData, setFormData]= React.useState({
         state,
@@ -29,6 +33,7 @@ function VerifyRegister(props) {
         event.preventDefault()
         console.log(formData)
 
+        //fetch("http://127.0.0.1:8080/user/verify", {
         fetch(`http://dan565.pythonanywhere.com/user/verify`, {
             method: 'POST',
             headers: {
@@ -50,6 +55,7 @@ function VerifyRegister(props) {
             if(!res.ok) throw new Error(res.status);
             return res.json()
         }).then(data => {
+            navigateToHomePage()
             console.log(data)
         }).catch(err => {
             console.log(err)

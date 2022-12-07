@@ -10,9 +10,8 @@ import VerifyRegister from "./Registering/VerifyRegister"
 
 
 
+
 function App() {
-
-
 
   return (
     <BrowserRouter>

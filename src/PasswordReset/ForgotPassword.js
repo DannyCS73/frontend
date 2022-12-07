@@ -23,7 +23,8 @@ function ForgotPassword(){
 
     function handleSubmit(event){
         event.preventDefault()
-        fetch(`http://127.0.0.1:8080/requestreset`, { //post a reset password request to API.
+        fetch("http://dan565.pythonanywhere.com/requestreset", { 
+        // fetch(`http://127.0.0.1:8080/requestreset`, { //post a reset password request to API.
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

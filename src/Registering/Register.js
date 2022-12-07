@@ -1,5 +1,7 @@
 import React, {useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
+import {getCookie} from "../App"
+import ReCAPTCHA from 'react-google-recaptcha'
 
 function Register() {
 
@@ -8,7 +10,15 @@ function Register() {
     const [securityQuestions, setSecurityQuestions] = useState() //array storing all security questions.
     const [errorMessage, setErrorMessage] = useState("") //string storing error message.
 
+    const[verified, setVerified] = useState(true)
+   
+    function onChange(){
+        setVerified(false)
+    }
+
+
     useEffect(() => { //run before components load.
+        //fetch("http://127.0.0.1:8080/questions", {
         fetch(`http://dan565.pythonanywhere.com/questions`,{ //get all security questions from API.
             method:"GET"
         }).then(res => res.json()).then(data => {
@@ -48,6 +58,7 @@ function Register() {
 
     function handleSubmit(event){
         event.preventDefault()
+        //fetch("http://127.0.0.1:8080/user", {
         fetch(`http://dan565.pythonanywhere.com/user`, { //post a new user to the API for verification.
             method: 'POST',
             headers: {
@@ -157,7 +168,14 @@ function Register() {
                         />
                     </div>
                     <p className= "errorMsg_reg">{errorMessage}</p>
-                    <button className="login-submit">
+                    <div className="form_group_recaptcha">
+                        <ReCAPTCHA
+                                sitekey='6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'
+                                onChange={onChange}
+                            />
+                    </div>
+                    {verified && <p>If captcha is not visible, refresh page!</p>}
+                    <button disabled={verified} className="login-submit">
                             <p>Register </p>
                     </button>
                     <hr className="h-line" />

@@ -28,6 +28,7 @@ function ResetPassword(){
     }
 
     useEffect(() => { //run before components load.
+        //fetch("http://127.0.0.1:8080/verify", {
         fetch(`http://dan565.pythonanywhere.com/verifyresetoken/${id}`, { //post a new user to the API for verification.
             method: 'GET'
         }).then(res => {
