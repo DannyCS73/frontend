@@ -1,4 +1,5 @@
 import React, {useEffect, useState } from "react"
+import { trackPromise } from "react-promise-tracker";
 import Header from "../Header";
 
 function RequestEvaluation(props){
@@ -33,6 +34,7 @@ function RequestEvaluation(props){
 
     useEffect(() => { //run before components load
         try{
+            trackPromise(
             //fetch("http://127.0.0.1:8080/valid_token", {
             fetch("http://dan565.pythonanywhere.com/valid_token", { //check user is logged on by validating thier token.
                 method: 'GET',
@@ -43,7 +45,7 @@ function RequestEvaluation(props){
                 setLoggedOn(true)
             }).catch(err => { //if error user is not logged on.
                 setLoggedOn(false)
-            })
+            }))
         } catch (e) { //if error user is not logged on.
             setLoggedOn(false)
         }

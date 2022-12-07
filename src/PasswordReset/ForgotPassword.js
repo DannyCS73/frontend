@@ -1,4 +1,5 @@
 import React from "react"
+import { trackPromise } from "react-promise-tracker"
 
 function ForgotPassword(){
 
@@ -24,6 +25,7 @@ function ForgotPassword(){
 
     function handleSubmit(event){
         event.preventDefault()
+        trackPromise(
         fetch("http://dan565.pythonanywhere.com/requestreset", { 
         // fetch(`http://127.0.0.1:8080/requestreset`, { //post a reset password request to API.
             method: 'POST',
@@ -39,7 +41,7 @@ function ForgotPassword(){
             }).catch(error => {
                 setShowErrorMessage(true)
                 setShowPosMessage(false)
-            })
+            }))
         }
 
     return (

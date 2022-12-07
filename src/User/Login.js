@@ -4,6 +4,7 @@ import {AiFillLock} from "react-icons/ai"
 import {useNavigate} from "react-router-dom";
 import base64 from 'react-native-base64'
 import ReCAPTCHA from 'react-google-recaptcha'
+import { trackPromise } from 'react-promise-tracker';
 
 
 function Login() {
@@ -54,6 +55,7 @@ function Login() {
     function handleSubmit(event){
         event.preventDefault()
         //fetch("http://127.0.0.1:8080/login", {
+        trackPromise(
         fetch("http://dan565.pythonanywhere.com/login", {
             method: 'GET',
             headers:{
@@ -79,7 +81,7 @@ function Login() {
                     window.grecaptcha.reset();
                     setVerified(true)
                     setShowMessage(true)
-                })
+                }))
             }
     return (
     <div className="login-page">

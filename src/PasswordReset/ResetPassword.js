@@ -1,4 +1,5 @@
 import React, { useEffect, useState} from "react"
+import { trackPromise } from "react-promise-tracker";
 import { Link } from "react-router-dom";
 import {useParams} from "react-router-dom";
 function ResetPassword(){
@@ -29,6 +30,7 @@ function ResetPassword(){
 
     useEffect(() => { //run before components load.
         //fetch("http://127.0.0.1:8080/verify", {
+        trackPromise(
         fetch(`http://dan565.pythonanywhere.com/verifyresetoken/${id}`, { //post a new user to the API for verification.
             method: 'GET'
         }).then(res => {
@@ -43,12 +45,13 @@ function ResetPassword(){
             setValidPage(true)
         }).catch(e => {
             setValidPage(false)
-        })
+        }))
     }, [])
 
 
     function handleSubmit(event){
         event.preventDefault()
+        trackPromise(
         fetch(`http://dan565.pythonanywhere.com/resetpassword/${id}`, {
             method: 'POST',
             headers: {
@@ -73,7 +76,7 @@ function ResetPassword(){
             setErrMsg('' + err)
             setShowErrMsg(true)
             setShowPosMsg(false)
-        })
+        }))
     }
     
     return (
