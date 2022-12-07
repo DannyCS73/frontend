@@ -11,7 +11,7 @@ function VerifyRegister(props) {
     console.log(state)
 
     function navigateToHomePage(){
-        navigate('/home')
+        navigate('/')
     }
 
     const[formData, setFormData]= React.useState({
