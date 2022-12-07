@@ -8,7 +8,8 @@ function ForgotPassword(){
     const[showPosMessage, setShowPosMessage] = React.useState(false)
 
     const[formData, setFormData]= React.useState({
-        email: ""
+        email: "",
+        answer: ""
       })
 
     function handleChange(event){
@@ -55,6 +56,16 @@ function ForgotPassword(){
                                 name="email"
                                 onChange={handleChange}
                                 value={formData.email}
+                            />
+                        </div>
+                        <div>
+                            <input 
+                                className="login-input"
+                                type="text"
+                                placeholder="securtiy question answer."
+                                name="answer"
+                                onChange={handleChange}
+                                value={formData.answer}
                             />
                         </div>
                         {showErrorMessage && <p className="errorMsg">No account for this email. Try again?</p>}
