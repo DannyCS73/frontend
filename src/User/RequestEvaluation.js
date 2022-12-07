@@ -35,6 +35,7 @@ function RequestEvaluation(props){
     function handleClick(){
         setSubmitErrMsg(false)
         setIsImage(false)
+        submitted(false)
     }
 
     useEffect(() => { //run before components load
