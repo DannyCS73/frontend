@@ -2,6 +2,7 @@ import React, {useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
 import {getCookie} from "../App"
 import ReCAPTCHA from 'react-google-recaptcha'
+import { trackPromise } from 'react-promise-tracker';
 
 function Register() {
 
@@ -58,6 +59,7 @@ function Register() {
 
     function handleSubmit(event){
         event.preventDefault()
+        trackPromise(
         //fetch("http://127.0.0.1:8080/user", {
         fetch(`http://dan565.pythonanywhere.com/user`, { //post a new user to the API for verification.
             method: 'POST',
@@ -81,7 +83,7 @@ function Register() {
                     naviagteToVerifyPage(data.message) //go to the verification page to finsih signing up.
                 }).catch(err => {
                     setErrorMessage('' + err); //show error repsonse from API.
-                })
+                }))
             }
 
     return(

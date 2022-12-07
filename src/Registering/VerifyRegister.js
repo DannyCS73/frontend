@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react"
 import { useLocation, useNavigate } from "react-router-dom";
 import {RegisterContext} from "./Register"
 import { BrowserRouter, Routes, Router , Route, Link} from 'react-router-dom'
+import { trackPromise } from 'react-promise-tracker';
 
 function VerifyRegister(props) {
 
@@ -33,6 +34,7 @@ function VerifyRegister(props) {
         event.preventDefault()
         console.log(formData)
 
+        trackPromise(
         //fetch("http://127.0.0.1:8080/user/verify", {
         fetch(`http://dan565.pythonanywhere.com/user/verify`, {
             method: 'POST',
@@ -59,7 +61,7 @@ function VerifyRegister(props) {
             console.log(data)
         }).catch(err => {
             console.log(err)
-        })
+        }))
     }
 
     return (

@@ -1,14 +1,17 @@
 import React, {useEffect, useState} from "react"
 import Header from "../Header"
+import { trackPromise } from 'react-promise-tracker';
 
 function Admin(){
 
     const [isAdmin, setIsAdmin] = useState() //boolean holding wether user is an admin.
+    const [msg, setMsg] = useState("")
     const [itemTable, setItemTable] = useState() //object holding all item data.
 
     useEffect(() => { //run before components load.
         try{
             // fetch("http://127.0.0.1:8080/images", {
+            trackPromise(
             fetch("http://dan565.pythonanywhere.com/images", { //fetch all items from API.
                 method: 'GET',
                 headers: {
@@ -23,9 +26,10 @@ function Admin(){
             <td>{item.name}</td><td>{item.desc}</td><td><img style={{width: "10vw"}}src={item.image}></img></td></tr> 
             }))}).catch(err => {
                 setIsAdmin(false) 
-            })
+            }))
         } catch (e){ //if error user is not logged on.
             setIsAdmin(false)
+            setMsg("You do not have access to this page. Only Administrators can view this page.")
         }
      },[])
 
@@ -58,7 +62,7 @@ function Admin(){
 
                 </div>
             }
-            {!isAdmin && <div>You do not have access to this page. Only Administrators can view this page.</div>}
+            {!isAdmin && <div>{msg}</div>}
         </div>
     )
 }
