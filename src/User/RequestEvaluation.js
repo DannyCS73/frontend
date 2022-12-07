@@ -32,6 +32,11 @@ function RequestEvaluation(props){
         })
     }
 
+    function handleClick(){
+        setSubmitErrMsg(false)
+        setIsImage(false)
+    }
+
     useEffect(() => { //run before components load
         try{
             trackPromise(
@@ -123,7 +128,7 @@ function RequestEvaluation(props){
                         <form className="request-form">
                             <label className="custom-upload-file">
                                 Click here to upload an image
-                                <input type="file" onChange={(event) => handleChange(event.target.files[0] || null)} />
+                                <input type="file" onClick={handleClick} onChange={(event) => handleChange(event.target.files[0] || null)} />
                             </label>
                             {isImage && 
                                     <div>
